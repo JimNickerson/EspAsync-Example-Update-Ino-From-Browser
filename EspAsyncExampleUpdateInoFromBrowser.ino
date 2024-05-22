@@ -55,6 +55,12 @@ void setup() {
     Serial.println("An Error has occurred while mounting SPIFFS");
     return;
   }
+  Serial.println('\n');
+  Serial.print("Connected to ");
+  Serial.println(WiFi.SSID());              // Tell us what network we're connected to
+  Serial.print("IP address:\t");
+  Serial.println(WiFi.localIP());           // Send the IP address of the ESP8266 to the computer
+
   // attach AsyncWebSocket
   ws.onEvent(onEvent);
   server.addHandler(&ws);
